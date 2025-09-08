@@ -635,27 +635,24 @@ if st.session_state.script_choice == "data":
     if input_device_ID:
         installation_date, expected, actual, percent = calculate_data_metrics(input_device_ID)
 
-        if installation_date:
-            st.markdown("#### 📊 Data Availability Analysis")
-            
-            # Display in 2 columns
-            col1, col2 = st.columns(2)
+        st.markdown("#### 📊 Data Availability Analysis")
+        
+        # Display in 2 columns
+        col1, col2 = st.columns(2)
 
-            with col1:
-                st.markdown("**🛠️ Installation Date:**")
-                st.write(installation_date.strftime('%Y-%m-%d %H:%M:%S'))
+        with col1:
+            st.markdown("**🛠️ Installation Date:**")
+            st.write(installation_date.strftime('%Y-%m-%d %H:%M:%S'))
 
-                st.markdown("**📈 Expected Data Points:**")
-                st.write(f"{expected:,}")  # comma-separated
+            st.markdown("**📈 Expected Data Points:**")
+            st.write(f"{expected:,}")  # comma-separated
 
-            with col2:
-                st.markdown("**📉 Actual Data Points:**")
-                st.write(f"{actual:,}")  # comma-separated
+        with col2:
+            st.markdown("**📉 Actual Data Points:**")
+            st.write(f"{actual:,}")  # comma-separated
 
-                st.markdown("**✅ Data Collection %:**")
-                st.write(f"{percent:.2f}%")
-        else:
-            st.warning("⚠️ No valid installation date found for this device.")
+            st.markdown("**✅ Data Collection %:**")
+            st.write(f"{percent:.2f}%")
     else:
         st.warning("⚠️ Please enter a valid **Device ID** to view records.")
 
@@ -2337,3 +2334,4 @@ st.markdown(
     """, unsafe_allow_html=True
 )
 st.markdown("<br>", unsafe_allow_html=True)
+
