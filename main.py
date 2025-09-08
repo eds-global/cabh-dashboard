@@ -639,20 +639,22 @@ if st.session_state.script_choice == "data":
         
         # Display in 2 columns
         col1, col2 = st.columns(2)
-
-        with col1:
-            st.markdown("**🛠️ Installation Date:**")
-            st.write(installation_date.strftime('%Y-%m-%d %H:%M:%S'))
-
-            st.markdown("**📈 Expected Data Points:**")
-            st.write(f"{expected:,}")  # comma-separated
-
-        with col2:
-            st.markdown("**📉 Actual Data Points:**")
-            st.write(f"{actual:,}")  # comma-separated
-
-            st.markdown("**✅ Data Collection %:**")
-            st.write(f"{percent:.2f}%")
+        if installation_date:
+            with col1:
+                st.markdown("**🛠️ Installation Date:**")
+                st.write(installation_date.strftime('%Y-%m-%d %H:%M:%S'))
+    
+                st.markdown("**📈 Expected Data Points:**")
+                st.write(f"{expected:,}")  # comma-separated
+    
+            with col2:
+                st.markdown("**📉 Actual Data Points:**")
+                st.write(f"{actual:,}")  # comma-separated
+    
+                st.markdown("**✅ Data Collection %:**")
+                st.write(f"{percent:.2f}%")
+        else:
+            st.write("")
     else:
         st.warning("⚠️ Please enter a valid **Device ID** to view records.")
 
@@ -2334,4 +2336,5 @@ st.markdown(
     """, unsafe_allow_html=True
 )
 st.markdown("<br>", unsafe_allow_html=True)
+
 
