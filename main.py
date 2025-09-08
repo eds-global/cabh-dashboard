@@ -635,11 +635,10 @@ if st.session_state.script_choice == "data":
     if input_device_ID:
         installation_date, expected, actual, percent = calculate_data_metrics(input_device_ID)
 
-        st.markdown("#### 📊 Data Availability Analysis")
-        
-        # Display in 2 columns
-        col1, col2 = st.columns(2)
         if installation_date:
+            st.markdown("#### 📊 Data Availability Analysis")
+            # Display in 2 columns
+            col1, col2 = st.columns(2)
             with col1:
                 st.markdown("**🛠️ Installation Date:**")
                 st.write(installation_date.strftime('%Y-%m-%d %H:%M:%S'))
@@ -2336,5 +2335,6 @@ st.markdown(
     """, unsafe_allow_html=True
 )
 st.markdown("<br>", unsafe_allow_html=True)
+
 
 
